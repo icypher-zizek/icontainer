@@ -1,0 +1,202 @@
+
+@import "constants.less";
+@import "mixins.less";
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+#header {overflow:visible;}
+
+a.disabled-link, a[disabled].disabled-link, .disabled-link a, .disabled-table-link table * {pointer-events:none;}
+.alg-ctr {text-align:center;}
+.alg-rht {text-align:right;}
+
+.bg-grey-stripes {background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAUElEQVQYV2NcvXx1PQMQhEaGNoJoZACTA4kxgjiEFIEVopsC4iObBJPHUIhNEchGFIW4FKFYjU8RXCEhRXBfo3sIWyiAgwdZIa6gQlGILzwB0J0wdw7zhe4AAAAASUVORK5CYII=) repeat;}
+.errMsgHolder{display:block;margin:0.25em 0 0.5em;}
+
+.block{display:block;}
+.bold {font-weight:bold;}
+
+.BorderCG(border; solid; @borderSize; @borderColor);
+.BorderCG(border-styled; solid; @borderSize; @primaryColor);
+.BorderCG(border-dotted; dotted; @borderSize; @borderColor);
+.BorderCG(no-border; solid; 0; transparent) !important;
+.box-shadow { .BoxShadow }
+.no-box-shadow { .NoBoxShadow() !important; };
+
+.clickable {cursor: pointer;}
+.construction{text-align:bold;font-size:14px;font-weight:bold;min-height:450px;}
+
+.DisplayCG();
+
+.error {color: @failureColor;}
+.expand {width:100%}
+.expand-hlf {width:50%;}
+.expand-qtr {width:25%;}
+
+.hidden {display:none;}
+.hidden-element{display:none;}
+
+.ico-lg { font-size:2em;color:#a40000; }
+.inline {display:inline;}
+
+.light-grad-bg { .BGGradient }
+.logo {position:relative;height:@headerHeight;display:block;}
+
+.MarginCG(margin;@space) !important;
+.MarginCG(margin-sm;@spaceSm) !important;
+.MarginCG(margin-big;@spaceBig) !important;
+.MarginCG(margin-lg;@spaceLg) !important;
+
+.MarginCG(no-margin; 0em) !important;
+.PaddingCG(no-pad; 0em) !important;
+.PaddingCG(no-padding; 0em) !important;
+.no-table-pad { padding: 0em !important; }
+
+.overlay-holder {position:relative;}
+.overlay-trans {position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
+.overlay-trans-calendar {position:absolute;top:2em;left:0;width:100%;height:100%;z-index:1;}
+.overlay-lgrey { position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;background-color:#000;opacity:0.3;}
+
+.PaddingCG(pad; @space) !important;
+.PaddingCG(pad-sm; @spaceSm) !important;
+.PaddingCG(pad-big; @spaceBig) !important;
+.PaddingCG(pad-lg; @spaceLg);
+.place-top {position:relative;top:0;}
+.place-btm {position:relative;bottom:0;}
+.place-lft {position:relative;left:0;}
+.place-rht {position:relative;right:0;}
+.pad-big div.no-margin-top, .pad-big div.no-margin-tb, .pad-big div.no-margin { margin-top: @spaceBig*-1; }
+.pad-big div.no-margin-btm, .pad-big div.no-margin-tm, .pad-big div.no-margin { margin-bottom: @spaceBig*-1; }
+.pad-big div.no-margin-lft, .pad-big div.no-margin-lr, .pad-big div.no-margin { margin-left: @spaceBig*-1; }
+.pad-big div.no-margin-rht, .pad-big div.no-margin-lr, .pad-big div.no-margin { margin-right: @spaceBig*-1; }
+
+.success {color:@successColor;}
+
+.UICornerCG(ui-corner; @borderRadiusSize);
+.UICornerCG(no-ui-corner; 0px) !important;
+
+.vertical-align {.vertical-center();}
+
+.width-four-fifth  		{ width:80%;  }
+.width-three-quater 	{ width:75%;  }
+.width-two-third 		{ width:66.6%;}
+.width-three-fifth 		{ width:60%;  }
+.width-half 			{ width:50%;  }
+.width-two-fifth 		{ width:40%;  }
+.width-third 			{ width:33.3%;}
+.width-quater 			{ width:25%;  }
+.width-fifth 			{ width:20%;  }
+.width-tenth 			{ width:10%;  }
+
+/* line heights */
+.nor-line{line-height:100%;}
+.med-line{line-height:150%;}
+.big-line{line-height:200%;}
+
+/* fixed element sizes */
+.AddressFormHolder { min-height:8em; }
+.newOfferWizardBody { height:610px;border:none;overflow-y:hidden; }
+
+/********************************************************************/
+
+.custom-gradient-bg { .BGGradient(@primaryColorLight; @primaryColor); }
+.custom-gradient-bg-inv { .BGGradient(@primaryColor; @primaryColorLight); }
+.custom-link-bg { .BGGradient(@primaryColor; @primaryColorDark); }
+.custom-link-bg-inv { .BGGradient(@primaryColorDark; @primaryColor); }
+
+.custom-border, .border-styled { border: 1px solid @primaryColor; }
+.custom-shadow-border { border-color: @primaryColor !important; .BoxShadow(0; 1px; 1px; fade(@primaryColor, 30%));}
+
+
+/* A separator line with a caption */
+.separator h6 {
+	color: #999;
+	font-size: 16px;
+	margin-top: 20px;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	z-index: 1;
+	&:before {
+		border-top:1px solid #ccc;
+		content:"";
+		margin:0 auto;
+		position:absolute;
+		top:8px; 
+		left:0; 
+		right:0; 
+		bottom:0;
+		width:100%;
+		z-index:-1;
+	}
+	span {
+		background:#fff;/*set to bg of element containing separator*/
+		padding:0 @spaceSm;
+	}
+	&.double{
+		&:before{
+			border-top:none;
+		}
+		&:after {
+			border-bottom:1px solid blue;
+			.BoxShadow(0 1px 0 0 red);
+			content:"";
+			margin:0 auto;
+			position:absolute;
+			top:45%; 
+			left:0; 
+			right:0;
+			width:95%;
+			z-index:-1;
+		}
+	}
+}
+
+
+/* make keyframes that tell the start state and the end state of our object */
+@-webkit-keyframes fadeIn { 
+	from { opacity:0; z-index:0; } 
+	to { opacity:1; z-index:0; } 
+}
+@-moz-keyframes fadeIn { 
+	from { opacity:0; z-index:0; } 
+	to { opacity:1; z-index:0; } 
+}
+@keyframes fadeIn { 
+	from { opacity:0; z-index:0; } 
+	to { opacity:1; z-index:0;} 
+}
+ 
+.ofade-in {
+	opacity:0;  /* make things invisible upon start */
+	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+	 
+	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+	 
+	-webkit-animation-duration:0.5s;
+	-moz-animation-duration:0.5s;
+	animation-duration:0.5s;
+	
+	&.one {
+		-webkit-animation-delay: 0.0s;
+		-moz-animation-delay: 0.0s;
+		animation-delay: 0.0s;
+	}
+	&.two {
+		-webkit-animation-delay: 0.25s;
+		-moz-animation-delay:0.25s;
+		animation-delay: 0.25s;
+	}
+	&.three {
+		-webkit-animation-delay: 0.50s;
+		-moz-animation-delay: 0.50s;
+		animation-delay: 0.50s;
+	}
+}

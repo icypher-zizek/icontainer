@@ -1,0 +1,162 @@
+
+
+/* ======================== */
+/* general                  */
+/* ======================== */
+
+.BorderRadius(@radius: 4px) {
+			border-radius: @radius;
+	   -moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+}
+
+.BGGradient(@color1: #fff; @color2: #eee) {
+	background-color: @color2;
+	background-image:        linear-gradient(@color1, @color2);
+	background-image:   -moz-linear-gradient(@color1, @color2);
+	background-image:-webkit-linear-gradient(@color1, @color2);
+}
+
+.BoxShadow(@x: 0px; @y: 1px; @blur: 1px; @color: rgba(0,0,0,0.05)) {
+	        box-shadow: @arguments;
+	   -moz-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+}
+
+.NoBoxShadow() {
+	        box-shadow: none;
+	   -moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+.UICorner(@y: top; @x: left; @radius: 4px) {
+			border-@{y}-@{x}-radius: @radius;
+	    -moz-border-@{y}@{x}-radius: @radius;
+	-webkit-border-@{y}-@{x}-radius: @radius;
+}
+.UICornerTop(@radius: 4px) {
+	.UICorner(top; left; @radius);
+	.UICorner(top; right; @radius);
+}
+.UICornerBottom(@radius: 4px) {
+	.UICorner(bottom; left; @radius);
+	.UICorner(bottom; right; @radius);
+}
+.UICornerLeft(@radius: 4px) {
+	.UICorner(top; left; @radius);
+	.UICorner(bottom; left; @radius);
+}
+.UICornerRight(@radius: 4px) {
+	.UICorner(top; right; @radius);
+	.UICorner(bottom; right; @radius);
+}
+.UICornerAll(@radius: 4px) {
+	.UICornerTop(@radius);
+	.UICornerBottom(@radius);
+}
+
+.MultiCol (@columns) {
+    			 columns: @columns;
+    		column-count: @columns;
+         -o-column-count: @columns;
+        -ms-column-count: @columns;
+       -moz-column-count: @columns;
+	-webkit-column-count: @columns;
+}
+
+.MultiColGap (@gap: 1em) {
+    		column-gap: @gap;
+    	 -o-column-gap: @gap;
+    	-ms-column-gap: @gap;
+       -moz-column-gap: @gap;
+    -webkit-column-gap: @gap;
+}
+
+
+/* ======================== */
+/* class generators         */
+/* ======================== */
+
+@defaultSuffixes: top top, btm bottom, lft left, rht right;
+@borderSuffixes: top tl tr tb all top, btm bl br tb all bottom, lft tl bl lr all left, rht tr br lr all right;
+@cornerSuffixes: top tl lft all top left, btm bl lft all bottom left, top tr rht all top right, btm br rht all bottom right;
+
+.CreateSpacingClasses (@baseName; @spacing; @value: 1em; @iterator: 1) when(@iterator <= length(@borderSuffixes)) {
+    @suffix1:  extract(extract(@borderSuffixes, @iterator), 1);
+    @suffix2:  extract(extract(@borderSuffixes, @iterator), 2);
+    @suffix3:  extract(extract(@borderSuffixes, @iterator), 3);
+    @suffix4:  extract(extract(@borderSuffixes, @iterator), 4);
+    @suffix5:  extract(extract(@borderSuffixes, @iterator), 5);
+    @suffixValue: extract(extract(@borderSuffixes, @iterator), 6);
+    .@{baseName}, .@{baseName}-@{suffix1}, .@{baseName}-@{suffix2}, .@{baseName}-@{suffix3}, .@{baseName}-@{suffix4}, .@{baseName}-@{suffix5} {
+        @{spacing}-@{suffixValue}: @value;
+    }
+    .CreateSpacingClasses(@baseName; @spacing; @value; (@iterator + 1));
+}
+
+.BorderCG (@baseName; @borderType: solid; @borderSize: 1px; @borderColor: #ddd; @iterator: 1) when(@iterator <= length(@borderSuffixes)) {
+    @suffix1:  extract(extract(@borderSuffixes, @iterator), 1);
+    @suffix2:  extract(extract(@borderSuffixes, @iterator), 2);
+    @suffix3:  extract(extract(@borderSuffixes, @iterator), 3);
+    @suffix4:  extract(extract(@borderSuffixes, @iterator), 4);
+    @suffix5:  extract(extract(@borderSuffixes, @iterator), 5);
+    @suffixValue: extract(extract(@borderSuffixes, @iterator), 6);
+    .@{baseName}, .@{baseName}-@{suffix1}, .@{baseName}-@{suffix2}, .@{baseName}-@{suffix3}, .@{baseName}-@{suffix4}, .@{baseName}-@{suffix5} {
+        border-@{suffixValue}: @borderSize @borderType @borderColor;
+    }
+    .BorderCG(@baseName; @borderType; @borderSize; @borderColor; (@iterator + 1));
+}
+
+.UICornerCG (@baseName; @radius: 4px; @iterator: 1) when(@iterator <= length(@cornerSuffixes)) {
+    @suffix1:  extract(extract(@cornerSuffixes, @iterator), 1);
+    @suffix2:  extract(extract(@cornerSuffixes, @iterator), 2);
+    @suffix3:  extract(extract(@cornerSuffixes, @iterator), 3);
+    @suffix4:  extract(extract(@cornerSuffixes, @iterator), 4);
+    @suffixValue1: extract(extract(@cornerSuffixes, @iterator), 5);
+    @suffixValue2: extract(extract(@cornerSuffixes, @iterator), 6);
+    .@{baseName}, .@{baseName}-@{suffix1}, .@{baseName}-@{suffix2}, .@{baseName}-@{suffix3}, .@{baseName}-@{suffix4} {
+		        border-@{suffixValue1}-@{suffixValue2}-radius: @radius;
+		    -moz-border-@{suffixValue1}@{suffixValue2}-radius: @radius;
+		-webkit-border-@{suffixValue1}-@{suffixValue2}-radius: @radius;
+    }
+    .UICornerCG(@baseName; @radius; (@iterator + 1));
+}
+
+.PaddingCG (@baseName: pad; @value: 1em ) {
+	.CreateSpacingClasses(@baseName; padding; @value);
+}
+
+.MarginCG (@baseName: pane-space; @value: 1em ) {
+	.CreateSpacingClasses(@baseName; margin; @value);
+}
+
+.DisplayCG () {
+	.display-block { display: block; }
+	.display-inline { display: inline; }
+	.display-inline-block { display: inline-block; }
+	.display-table { display: table; }
+	.display-table-cell { display: table-cell; }
+}
+
+.Scale (@value: 0.5) {
+	        transform: scale(@value);
+	   -moz-transform: scale(@value);
+	-webkit-transform: scale(@value);
+}
+
+.vertical-center (@value: 50%, @position: relative) {
+				  top: @value;
+			 position: @position;
+	        transform: translateY(-1 * @value);
+	   -moz-transform: translateY(-1 * @value);
+	-webkit-transform: translateY(-1 * @value);
+}
+
+.Opacity (@value: 0.5) {
+	        opacity: @value;
+	   -moz-opacity: @value;
+	-webkit-opacity: @value;
+}
+
+
+

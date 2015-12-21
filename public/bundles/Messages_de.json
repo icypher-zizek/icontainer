@@ -1,0 +1,44 @@
+{
+	"webapp.name":"Sharerado",
+	"webapp.version":"V${project.version} (Build: ${build.buildNumber})",
+	"webapp.copyright":"Copyright © 2015 von Sharerado Gbr",
+	
+	
+	"label.header.home":"Home",
+	"label.header.product":"Produkt",
+	"label.header.contact":"Kontakt",
+	"label.header.blog":"Blog",
+	
+	
+	"label.home.link.product":"So funktioniert's",
+	"label.home.link.contact":"Kontakt aufnehmen",
+	
+	
+	"label.contact.name":"Vorname",
+	"label.contact.surname":"Nachname",
+	"label.contact.email":"E-Mail",
+	"label.contact.message":"Ihre Nachricht",
+	"label.contact.sendMessage":"Nachricht Schicken",
+	"label.contact.mailTitle":"SHARERADO Nachricht: Von {0}",
+	"label.contact.emailSuccessMsg":"Vielen Dank für Ihre Nachricht. Wir beantworten Sie so schnell wie möglich.",
+	"label.contact.emailFailureMsg":"Ihre Nachricht konnte leider nicht verschickt werden! Bitte versuchen Sie es später.",
+	
+	
+	"label.blog.noEntries":"Es gibt noch keine Einträge!",
+	
+	
+	"label.footer.link.policies":"AGBs",
+	"label.footer.link.impressum":"Impressum",
+	"label.footer.link.sitemap":"Sitemap",
+	
+	
+	"label.readMore":"Weiter...",
+	"label.sitemap":"Sitemap",
+	
+	
+	"error.contact.missingName":"Bitte geben Sie Ihr Vorname ein.",
+	"error.contact.missingSurname":"Bitte geben Sie Ihr Nachname ein.",
+	"error.contact.missingEmail":"Bitte geben Sie Ihre E-Mail Addresse ein.",
+	"error.contact.missingMessage":"Bitte geben Sie eine Nachricht ein.",
+	"error.contact.invalidEmail":"Die eingegebene E-Mail Addresse is ungültig."
+}

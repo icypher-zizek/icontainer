@@ -1,0 +1,89 @@
+
+/* ======================== */
+/* general                  */
+/* ======================== */
+@headerHeight			: 50px;
+@smallSuffix			: sm;
+@mediumSuffix			: med;
+@bigSuffix				: big;
+@borderRadiusSize		: 4px;
+
+@thumbHolderHeight		: 100px;
+@thumbSize				: 80px;
+@thumbHolderSpace		: (@thumbHolderHeight - @thumbSize)/2;
+
+@sizeCoefficient 		: 1; // retina = 2
+
+/* ======================== */
+/* font sizes               */
+/* ======================== */
+@fontSizeSm			: 0.75em;
+@fontSize			: 0.90em;
+@fontSizeBig		: 1.00em;
+
+@fontSizeLg			: 44px * @sizeCoefficient;
+@fontSizeMd			: 25px * @sizeCoefficient;
+@fontSizeNr			: 20px * @sizeCoefficient;
+@fontSizeSm			: 17px * @sizeCoefficient;
+@fontSizeXs			: 15px * @sizeCoefficient;
+
+/* ======================== */
+/* colors                   */
+/* ======================== */
+@colorChangePercentage	: 10%;
+@primaryColor			: #008cc7; //#32AF7F;
+@primaryColorDark		: darken(@primaryColor, @colorChangePercentage); 
+@primaryColorDarker		: darken(@primaryColorDark, @colorChangePercentage);
+@primaryColorLight		: #6DDCB7;
+@primaryColorLighter	: lighten(@primaryColorLight, @colorChangePercentage);
+@textColorLightest		: #fff;
+@textColorLighter		: #ddd;
+@textColorDarker		: #333;
+@textColorDarkest		: #000;
+@buttonTextColor		: @textColorLightest;
+
+@secondaryColor 		: #53585F;
+@secondaryColorDark		: darken(@secondaryColor, @colorChangePercentage); 
+@secondaryColorDarker	: darken(@secondaryColorDark, @colorChangePercentage);
+@secondaryColorLight	: #DCDEE0;
+@secondaryColorLighter	: lighten(@secondaryColorLight, @colorChangePercentage);
+
+@successColor: #3c763d;
+@failureColor: #a94442;
+
+/* ======================== */
+/* borders                  */
+/* ======================== */
+@borderSize	: 1px;
+@borderColor: @secondaryColorLight;
+
+/* ======================== */
+/* padding and margin sizes */
+/* ======================== */
+@spaceSm						: 5px * @sizeCoefficient;
+@space							: @spaceSm*2;
+@spaceMed						: @spaceSm*3;
+@spaceBig						: @space*2;
+@spaceLg						: @spaceBig*2;
+@sectionHeadingPad 				: 18px * @sizeCoefficient;
+
+/* ======================== */
+/* header bar */
+/* ======================== */
+@headerHeight 					: 40px * @sizeCoefficient;
+@headerBg 						: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAHUlEQVQImWN4+/btf1yY4e3bt///////DBsedJIAst28+2rS8JkAAAAASUVORK5CYII=); // fade(#fff, 80%);
+@logoWidth 			 			: 297px * @sizeCoefficient;
+@logoHeight 					: @headerHeight ; // 111
+@mainSliderHeight    			: 500px * @sizeCoefficient;
+@headerlangSwitcherWidth 		: 150px * @sizeCoefficient;
+
+/* ======================== */
+/* footer bar */
+/* ======================== */
+@footerHeight 		        : 100px * @sizeCoefficient; //
+
+
+
+@inputHeight 				: 50px;
+@inputPad 					: 8px;
+

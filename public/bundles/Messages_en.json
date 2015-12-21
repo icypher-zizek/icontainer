@@ -1,0 +1,44 @@
+{
+	"webapp.name":"Sharerado",
+	"webapp.version":"V${project.version} (Build: ${build.buildNumber})",
+	"webapp.copyright":"Copyright © 2015 by Sharerado Gbr",
+	
+	
+	"label.header.home":"Home",
+	"label.header.product":"Product",
+	"label.header.contact":"Contact",
+	"label.header.blog":"Blog",
+	
+	
+	"label.home.link.product":"Learn More",
+	"label.home.link.contact":"Get In Touch",
+	
+	
+	"label.contact.name":"Name",
+	"label.contact.surname":"Surname",
+	"label.contact.email":"Email",
+	"label.contact.message":"Your Message",
+	"label.contact.sendMessage":"Send Message",
+	"label.contact.mailTitle":"SHARERADO Message: From {0}",
+	"label.contact.emailSuccessMsg":"Thanks for your message. We will get back to you as soon as possible.",
+	"label.contact.emailFailureMsg":"Unfortunately, your message could not be sent! Please try again later.",
+	
+	
+	"label.blog.noEntries":"There aren't any entries yet!",
+	
+	
+	"label.footer.link.policies":"Policies",
+	"label.footer.link.impressum":"Impressum",
+	"label.footer.link.sitemap":"Sitemap",
+	
+	
+	"label.readMore":"Read more...",
+	"label.sitemap":"Sitemap",
+	
+	
+	"error.contact.missingName":"Please enter your name.",
+	"error.contact.missingSurname":"Please enter your surname.",
+	"error.contact.missingEmail":"Please enter your E-Mail address.",
+	"error.contact.missingMessage":"Please enter your message.",
+	"error.contact.invalidEmail":"Your E-Mail address is invalid!"
+}
